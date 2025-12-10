@@ -1,0 +1,310 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg: #ffd9e6;
+  --bg2: #ffe7f0;
+  --card: #fffafc;
+  --accent: #ff4e88;
+  --accent-soft: #ff9bb9;
+  --text-main: #ff2c6b;
+  --text-soft: #555;
+  --shadow: 0 20px 45px rgba(255, 77, 136, 0.28);
+  --radius-lg: 28px;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  background: radial-gradient(circle at top, #ffe2f0 0, #ffd2e3 35%, #ffc4dc 70%, #ffbdd9 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 中央配置 */
+.center {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+/* メインカード */
+.card {
+  width: 100%;
+  max-width: 720px;
+  min-height: 380px;
+  background: var(--card);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+  padding: 28px 40px 32px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* 上のピンクライン＋プログレス */
+.card-top {
+  margin-bottom: 20px;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 6px;
+  border-radius: 999px;
+  background: #ffd2e3;
+  overflow: hidden;
+  position: relative;
+}
+
+#progress-fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #ff4e88, #ff7fa2, #ffc4dc);
+  box-shadow: 0 0 12px rgba(255, 109, 156, 0.8);
+  border-radius: inherit;
+  transition: width 0.35s ease-out;
+}
+
+/* ステップ共通 */
+.step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 18px;
+}
+
+/* タイトル・テキスト */
+.step-title {
+  font-size: 1.9rem;
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+.step-text {
+  font-size: 0.96rem;
+  color: var(--text-soft);
+  max-width: 480px;
+  line-height: 1.6;
+  white-space: pre-line; /* ← 改行をそのまま表示 */
+}
+
+/* 引用サブテキスト（必要なら） */
+.quote-sub {
+  color: var(--text-main);
+  font-weight: 500;
+}
+
+/* メインボタン */
+.btn-main {
+  margin-top: 12px;
+  border: none;
+  border-radius: 999px;
+  padding: 0.7rem 2.4rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #fff;
+  background: linear-gradient(135deg, var(--accent), #ff7aa5);
+  box-shadow: 0 14px 30px rgba(255, 77, 136, 0.5);
+  cursor: pointer;
+  transition: transform 0.15s ease-out, box-shadow 0.15s ease-out;
+}
+
+.btn-main:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 18px 36px rgba(255, 77, 136, 0.7);
+}
+
+.btn-main:active {
+  transform: translateY(1px) scale(0.98);
+  box-shadow: 0 10px 24px rgba(255, 77, 136, 0.55);
+}
+
+/* タイピング用のカーソル */
+.typing::after {
+  content: "|";
+  margin-left: 2px;
+  animation: blinkCursor 0.9s step-end infinite;
+  opacity: 1;
+}
+
+@keyframes blinkCursor {
+  from,
+  to {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+/* ハート */
+.heart-wrap {
+  margin-top: 28px;
+  margin-bottom: 4px;
+}
+
+/* 説明文がハートの下に来るように少し余白 */
+.text-under-heart {
+  margin-top: 16px;
+}
+
+/* 枠なしハートボタン */
+.big-heart {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  position: relative;
+}
+
+/* ハート本体 */
+.heart-core {
+  width: 180px;
+  height: 160px;
+  background: #ff2f73;
+  box-shadow: 0 12px 35px rgba(255, 80, 140, 0.38);
+  clip-path: path(
+    "M90 15 C 110 -10, 160 0, 160 45 C 160 75, 130 105, 90 140 C 50 105, 20 75, 20 45 C 20 0, 70 -10, 90 15 Z"
+  );
+}
+.heart-confetti {
+  position: fixed;
+  width: 18px;
+  height: 16px;
+  background: #ff2f73;
+  clip-path: path(
+    "M8 2 C 10 -2, 16 0, 16 5 C 16 9, 12 12, 8 15 C 4 12, 0 9, 0 5 C 0 0, 6 -2, 8 2 Z"
+  );
+  pointer-events: none;
+  z-index: 5;
+  opacity: 0.95;
+}
+.heart-confetti {
+  background: linear-gradient(135deg, #ff4e88, #ffb3c9);
+}
+/* Tap me（中央表示） */
+.tap-label {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+  pointer-events: none;
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.28);
+}
+
+/* 丸い画像 */
+.avatar-wrap {
+  margin-top: 8px;
+}
+
+.avatar-circle {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  padding: 4px;
+  background: linear-gradient(135deg, #ff8fb5, #ffd5e7);
+  box-shadow: 0 18px 32px rgba(255, 77, 136, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.avatar-circle img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* ハート紙吹雪 */
+.heart-confetti {
+  position: fixed;
+  width: 16px;
+  height: 16px;
+  background: #ff2f73;
+  clip-path: path(
+    "M8 2 C 10 -2, 16 0, 16 5 C 16 9, 12 12, 8 15 C 4 12, 0 9, 0 5 C 0 0, 6 -2, 8 2 Z"
+  );
+  pointer-events: none;
+  z-index: 5;
+}
+
+/* particles 背景 */
+#particles-js {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+}
+
+/* レスポンシブ */
+@media (max-width: 600px) {
+  .card {
+    padding: 24px 18px 26px;
+    max-width: 100%;
+  }
+
+  .step-title {
+    font-size: 1.6rem;
+  }
+
+  .step-text {
+    font-size: 0.9rem;
+  }
+
+  .heart-core {
+    width: 150px;
+    height: 135px;
+  }
+}.play-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  
+  background: linear-gradient(135deg, #ff4e88, #ff7aa5);
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 500;
+  border: none;
+  border-radius: 999px;
+  padding: 0.65rem 1.4rem;
+  cursor: pointer;
+  box-shadow: 0 12px 28px rgba(255, 77, 136, 0.45);
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+
+.play-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 18px 36px rgba(255, 77, 136, 0.6);
+}
+
+.play-btn:active {
+  transform: translateY(1px) scale(0.98);
+}
+
+.play-btn .icon {
+  font-size: 1.35rem;
+}
+
