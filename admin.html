@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>Admin Login</title>
+
+  <style>
+    * { box-sizing: border-box; font-family: "Segoe UI", "Hiragino Kaku Gothic ProN", sans-serif; }
+
+    body {
+      margin: 0;
+      height: 100vh;
+      background: linear-gradient(135deg, #e3f2fd, #f1f8ff);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .login-container {
+      background: #fff;
+      width: 360px;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+      text-align: center;
+    }
+
+    .login-container h2 { margin-bottom: 25px; color: #1976d2; }
+
+    .field { text-align: left; margin-bottom: 18px; }
+    .field label { display: block; font-size: 14px; color: #555; margin-bottom: 5px; }
+
+    .field input {
+      width: 100%;
+      padding: 10px 12px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 15px;
+    }
+    .field input:focus { outline: none; border-color: #1976d2; }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background: #1976d2;
+      color: #fff;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 10px;
+      transition: 0.2s;
+    }
+    button:hover { background: #125aa0; }
+
+    .message { margin-top: 15px; font-size: 14px; }
+    .message.error { color: #d32f2f; }
+    .message.ok { color: #2e7d32; }
+  </style>
+</head>
+
+<body>
+  <div class="login-container">
+    <h2>Admin Login</h2>
+
+    <!-- ✅ form を作る -->
+    <form id="loginForm" autocomplete="off">
+      <div class="field">
+        <label for="email">Email</label>
+        <input id="email" type="email" autocomplete="off"   required>
+      </div>
+
+      <div class="field" autocomplete="new-password">
+        <label for="pass">Password</label>
+        <input id="pass" type="password" autocomplete="new-password" required>
+      </div>
+
+      <!-- ✅ submit ボタン -->
+      <button type="submit">Login</button>
+    </form>
+
+    <!-- ✅ msg を作る -->
+    <p id="msg" class="message"></p>
+  </div>
+
+   <script type="module" src="./js/admin-login.js"></script> 
+</body>
+</html>

@@ -1,52 +1,88 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <title>Birthday Wish for My Love 🎂</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<!doctype html>
+<html lang="ja">
+<head><meta charset="utf-8"><title>Select Role</title></head>
+<style>
+    * {
+  box-sizing: border-box;
+  font-family: "Segoe UI", "Hiragino Kaku Gothic ProN", sans-serif;
+}
 
-  <link rel="stylesheet" href="style.css" />
+body {
+  margin: 0;
+  height: 100vh;
+  background: linear-gradient(135deg, #f0f4ff, #e6f7f0);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-  <!-- GSAP -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
-  <!-- particles.js -->
-  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js" defer></script>
-  <!-- メインスクリプト -->
-  <script src="script.js" defer></script>
-</head>
+.container {
+  background: #fff;
+  padding: 40px 50px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  width: 360px;
+}
+
+h1 {
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  color: #666;
+  margin-bottom: 30px;
+}
+
+.btn-area {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+.btn {
+  padding: 14px 24px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.btn.applicant {
+  background: #4caf50;
+  color: #fff;
+}
+
+.btn.admin {
+  background: #1976d2;
+  color: #fff;
+}
+
+.btn:hover {
+  opacity: 0.85;
+  transform: translateY(-2px);
+}
+
+</style>
 <body>
-  <!-- 背景パーティクル -->
-  <div id="particles-js"></div>
+  <div class="container">
+    <h1>応募システム</h1>
+    <p class="subtitle">利用する立場を選択してください</p>
 
-  <main class="center">
-    <section class="card">
-      <div class="card-top">
-        <div class="progress-bar">
-          <div id="progress-fill"></div>
-        </div>
-      </div>
+    <div class="btn-area">
+      <button id="btnApplicant" class="btn applicant">Applicant</button>
+      <button id="btnAdmin" class="btn admin">Admin</button>
+    </div>
+  </div>
 
-      <!-- ★ BGMはここに1つだけ。YouTubeじゃなくmp3ファイル ★ -->
-      <audio
-        id="bgm"
-        src="./happy-birthday-314197.mp3"
-        loop
-      ></audio>
-
-      
-
-      <!-- JS で中身を差し込む -->
-      <div id="step-container" class="step"></div>
-
-      <!-- テスト用ボタン：これを押して音が出るか確認 -->
-      <button class="play-btn" id="playSong">
-        <span class="icon">🎶</span>
-        Play Song
-      </button>
-
-      <!-- デバッグ用：ブラウザ標準コントロール（音が出るかテスト） -->
-      
-    </section>
-  </main>
+  <script>
+    document.getElementById("btnApplicant").onclick = () => {
+      location.href = "applicant-id.html";
+    };
+    document.getElementById("btnAdmin").onclick = () => {
+      location.href = "admin.html";
+    };
+  </script>
 </body>
 </html>
